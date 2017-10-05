@@ -1,0 +1,18 @@
+enum SettingType
+{
+USER, SYSTEM
+}
+
+entity UserSetting {
+id Long required,
+name String required,
+value String required,
+type SettingType
+}
+
+relationship ManyToOne {
+UserSetting{User(id) required} to User
+}
+
+dto UserSetting with mapstruct
+service UserSetting with serviceClass
